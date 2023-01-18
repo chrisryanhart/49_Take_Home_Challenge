@@ -2,6 +2,7 @@ import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Home from "./Home";
 import NewUserForm from "./NewUserForm";
+import UserList from './UserList';
 
 
 function Routes(){
@@ -15,13 +16,15 @@ function Routes(){
                 <Route exact path="/register">
                     <NewUserForm/>
                 </Route>
-                <Route exact path="/users">
-                    
+                <Route exact path="/users/manage">
+                    <UserList/>
                 </Route>
+
                 <Route exact path="/users/:id">
                     
                 </Route>
-                <Route exact path="/users/manage">
+
+                <Route exact path="/users">
                     
                 </Route>
                 <Redirect to="/"/>

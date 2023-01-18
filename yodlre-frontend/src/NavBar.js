@@ -86,21 +86,13 @@ function NavBar(props) {
                 open={open}
                 onClose={handleClose}
               >
-                {/* <MenuItem onClick={handleClose}>
-                  <Link to="/">Home</Link> 
-                </MenuItem> */}
                 <MenuItem onClick={handleClose}>
-                  {/* this should be from user */}
-                  <Link to={`/users/${currUserId}`}>My Profile</Link> 
+                  <Link to="/users">View Users</Link> 
                 </MenuItem>
                 <MenuItem onClick={handleClose}>
-                  <Link to="/meetups">All Meetups</Link> 
-                </MenuItem>
-                <MenuItem onClick={handleClose}>
-                  <Link to="/meetups/new">Make New Meetup</Link> 
+                  <Link to="/users/manage">Manage Users</Link> 
                 </MenuItem>
             </Menu>
-
           </div>
           <Typography variant="h6" className={classes.title}>
             Yodlr

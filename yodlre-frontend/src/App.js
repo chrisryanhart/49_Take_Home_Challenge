@@ -9,6 +9,7 @@ import Routes from './Routes';
 
 function App() {
 
+  const [currentUser,setCurrentUser] = useState([]);
 
   return (
     <div className="App">
@@ -16,7 +17,6 @@ function App() {
         <CountContext.Provider value={{}}>
           <NavBar/>
           <Routes/>
-          
         </CountContext.Provider>
 
       </BrowserRouter>
