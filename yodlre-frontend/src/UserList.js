@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import YodlrApi from "./api";
 import UserStatusCard from "./UserStatusCard";
+import UserProfileCard from './UserProfileCard';
 
 
-
-function UserList(){
+function UserList({type}){
 
     const [allUsers, setAllUsers] = useState([]);
 
@@ -15,7 +15,6 @@ function UserList(){
             setAllUsers(res);
         }
         fetchUsers();
-        // setAllUsers(userList);
     },[]);
 
     const deleteUser = (userDeleteId) => {
@@ -24,18 +23,14 @@ function UserList(){
     }
 
     const usersList = allUsers.map(user => {
-        return (
-            <UserStatusCard deleteUser={deleteUser} allUsers={allUsers} userDetails={user}/>
-        );
+        if(type !== 'allUsers'){
+            return (
+                <UserStatusCard type={type} deleteUser={deleteUser} allUsers={allUsers} userDetails={user}/>
+            );
+        }else{
+            return <UserProfileCard userDetails={user}/>;
+        }
     });
-
-
-
-
-    // call cards\
-
-    // add buttons where you can delete
-
 
     return (
         <div>
@@ -43,6 +38,7 @@ function UserList(){
                 <h3>Yodlr Users:</h3>
             </div>
             {usersList}
+
         </div>
     );
 

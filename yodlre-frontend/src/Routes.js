@@ -19,13 +19,8 @@ function Routes(){
                 <Route exact path="/users/manage">
                     <UserList/>
                 </Route>
-
-                <Route exact path="/users/:id">
-                    
-                </Route>
-
                 <Route exact path="/users">
-                    
+                    <UserList type="allUsers"/>
                 </Route>
                 <Redirect to="/"/>
             </Switch>

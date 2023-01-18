@@ -17,8 +17,8 @@ router.post('/', function(req, res) {
   // set user = to all form data
   var user = req.body;
 
-  // update userId to the next
-  user.id = curId++;
+  // curId did not increment.  changed increment method from '++' to '+1'
+  user.id = curId +1;
   if (!user.state) {
     user.state = 'pending';
   }

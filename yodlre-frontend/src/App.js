@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { BrowserRouter, useHistory } from "react-router-dom";
 import './App.css';
-import CountContext from './UserContext';
 import YodlrApi from './api';
 import NavBar from './NavBar';
 import Routes from './Routes';
@@ -9,15 +8,14 @@ import Routes from './Routes';
 
 function App() {
 
-  const [currentUser,setCurrentUser] = useState([]);
 
   return (
     <div className="App">
       <BrowserRouter>
-        <CountContext.Provider value={{}}>
+        
           <NavBar/>
           <Routes/>
-        </CountContext.Provider>
+        
 
       </BrowserRouter>
     </div>

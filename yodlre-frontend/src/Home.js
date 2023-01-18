@@ -7,9 +7,9 @@ function Home(){
 
 
     return (
-        <div>
-            Welcome to Yodlr!
-            <p><Link to='/register'>Register</Link> or login to continue.</p>
+        <div style={{margin:'50px', display:'flex', justifyContent:'center' }}>
+
+            <p>Welcome to Yodlr!  <Link to='/register'>Register</Link> to continue.</p>
         </div>
     );
 

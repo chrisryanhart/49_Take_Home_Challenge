@@ -27,49 +27,22 @@ const useStyles = makeStyles({
 });
 
 
-export default function UserStatusCard({userDetails, allUsers, deleteUser, type}) {
+export default function UserStatusCard({userDetails}) {
   const classes = useStyles();
-
-  const accountStatus = userDetails.state === 'pending'? true : false;
-
-  const [isPending, setIsPending] = useState(accountStatus);
-
-  const handleDelete = async () => {
-
-    await YodlrApi.deleteUser(userDetails.id);
-    deleteUser(userDetails.id);
-  }
-
-  const handleApproval = async () => {
-    
-    await YodlrApi.approveUser(userDetails,userDetails.id);
-    setIsPending(false);
-  }
-
-
-
-
 
   return (
     <Box style={{ display:'flex', justifyContent:'center' }} mt={2} ml={20} mr={20}>
       <Card  style={{width: '50px', border: "1px solid black" }}  className={classes.root}>
         <CardContent>
-          {isPending && <Typography variant="h5" component="h2">
-            Action Required!  Approval pending!
-          </Typography>}
           <Typography variant="body2" component="p">
             Email: {userDetails.email}
             <br />
             First Name: {userDetails.firstName}
             <br />
             Last Name: {userDetails.lastName}
-            
           </Typography>
         </CardContent>
-        <CardActions>
-          {isPending && <Button onClick={handleApproval} variant='contained' size="small">Approve</Button>}
-          <Button onClick={handleDelete} variant='contained' size="small">Delete</Button>
-        </CardActions>
+
       </Card>
 
     </Box>

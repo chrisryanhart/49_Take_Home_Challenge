@@ -42,8 +42,6 @@ export default function NewUserForm() {
         let res = await YodlrApi.register(newUserFormData);
         setNewUserFormData(INITIAL_STATE);
 
-        let userId = res.id;
-        // change to redirect to user profile if time permits
         history.push(`/users`);
     }
 
@@ -65,7 +63,7 @@ export default function NewUserForm() {
                         </div>
                         <div>
                             <label htmlFor='password'>Password: </label>
-                            <input onChange={handleChange} value={newUserFormData.password} name='password' id='password'/>
+                            <input type="password" onChange={handleChange} value={newUserFormData.password} name='password' id='password'/>
                         </div>
                         <div>
                             <label htmlFor='firstName'>First Name: </label>

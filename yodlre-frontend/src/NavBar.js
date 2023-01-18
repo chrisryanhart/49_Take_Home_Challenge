@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -9,18 +9,8 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import CountContext from './UserContext';
 
 
-// import {
-//   Collapse,
-//   Navbar,
-//   NavbarToggler,
-//   NavbarBrand,
-//   Nav,
-//   NavItem,
-//   NavLink,
-// } from 'reactstrap';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
 function NavBar(props) {
   const classes = useStyles();;
 
-  // const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -50,11 +39,6 @@ function NavBar(props) {
     setAnchorEl(null);
   };
 
-  const {currUserId, token, logout} = useContext(CountContext);
-
-  // const [collapsed, setCollapsed] = useState(true);
-
-  // const toggleNavbar = () => setCollapsed(!collapsed);
 
   return (
     <div className={classes.root}>
@@ -87,17 +71,20 @@ function NavBar(props) {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleClose}>
-                  <Link to="/users">View Users</Link> 
+                  <Link to="/">Home</Link> 
                 </MenuItem>
                 <MenuItem onClick={handleClose}>
-                  <Link to="/users/manage">Manage Users</Link> 
+                  <Link to="/users">All User Profiles</Link> 
+                </MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <Link to="/users/manage">Admin Manage Users</Link> 
                 </MenuItem>
             </Menu>
           </div>
           <Typography variant="h6" className={classes.title}>
             Yodlr
           </Typography>
-          {token && <Button onClick={logout} color="inherit">Logout</Button>}
+    
         </Toolbar>
       </AppBar>
     </div>
