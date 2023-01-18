@@ -14,11 +14,16 @@ router.get('/', function(req, res) {
 
 /* Create a new user */
 router.post('/', function(req, res) {
+  // set user = to all form data
   var user = req.body;
+
+  // update userId to the next
   user.id = curId++;
   if (!user.state) {
     user.state = 'pending';
   }
+
+  // add new user to mock db json file
   users[user.id] = user;
   log.info('Created user', user);
   res.json(user);
